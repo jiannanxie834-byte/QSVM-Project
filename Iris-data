@@ -1,0 +1,5 @@
+from sklearn import datasets
+
+iris = datasets.load_iris()
+X = iris.data      # 特征矩阵，形状 (150, 4)
+y = iris.target    # 标签，0,1,2 分别对应三种鸢尾花
