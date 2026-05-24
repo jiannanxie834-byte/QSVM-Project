@@ -78,6 +78,19 @@ def plot_hybrid_architecture():
     plt.savefig("outputs/hybrid_architecture.png", dpi=300)
     plt.close()
 
+# ===== 4. ROC 曲线 (经典 SVM 专用) =====
+def plot_roc(svm_model, X_test, y_test):
+    fig = plt.figure(figsize=(6, 5))
+    fig.canvas.manager.set_window_title("经典 SVM - ROC 性能曲线")
+    
+    RocCurveDisplay.from_estimator(svm_model, X_test, y_test, name="最优传统 SVM", ax=plt.gca())
+    
+    plt.plot([0, 1], [0, 1], linestyle="--", color="gray")
+    plt.title("经典 SVM ROC 性能曲线")
+    plt.xlabel("假正例率 (False Positive Rate)")
+    plt.ylabel("真正例率 (True Positive Rate)")
+    plt.tight_layout()
+    plt.show()
 
 # =========================
 # 一键运行
